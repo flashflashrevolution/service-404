@@ -16,14 +16,14 @@ The deployment chart for this project can be found in the [charts](https://githu
 git log --oneline
 
 # Then run the build. Uses multi-stage build, the access token wont be in the final image.
-docker build -t ghcr.io/flashflashrevolution/flashflashrevolution/service-404-fallback:sha-shavalue .
+docker build -t ghcr.io/flashflashrevolution/service-404-fallback:sha-shavalue .
 
 # Push the built image.
-docker push ghcr.io/flashflashrevolution/flashflashrevolution/service-404-fallback:sha-shavalue
+docker push ghcr.io/flashflashrevolution/service-404-fallback:sha-shavalue
 
 # Here is an example of a functional sequence.
 # NPM_TOKEN=averyvalidtokenstring
-# docker build -t ghcr.io/flashflashrevolution/flashflashrevolution/service-404-fallback:sha-cbcc9cd .
+# docker build -t ghcr.io/flashflashrevolution/service-404-fallback:sha-cbcc9cd .
 # docker push ghcr.io/flashflashrevolution/service-404-fallback:sha-cbcc9cd
 ```
 
@@ -32,8 +32,8 @@ docker push ghcr.io/flashflashrevolution/flashflashrevolution/service-404-fallba
 ```zsh
 
 # Build the image
-docker build -t ghcr.io/flashflashrevolution/flashflashrevolution/service-404-fallback:dev .
+docker build -t ghcr.io/flashflashrevolution/service-404-fallback:dev .
 
 # Run the image
-docker container run -p 8080:80 ghcr.io/flashflashrevolution/flashflashrevolution/service-404-fallback:dev
+docker container run -p 8080:80 ghcr.io/flashflashrevolution/service-404-fallback:dev
 ```
