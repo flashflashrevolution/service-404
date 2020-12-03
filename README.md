@@ -12,33 +12,28 @@ The deployment chart for this project can be found in the [charts](https://githu
 ## Development Image Builds
 
 ```zsh
-# First get a github access token with registry read permissions.
-NPM_TOKEN=access_token
-
 # Get the sha of the latest commit you want to build from.
 git log --oneline
 
 # Then run the build. Uses multi-stage build, the access token wont be in the final image.
-docker build -t ghcr.io/flashflashrevolution/flashflashrevolution/service-404-fallback:sha-shavalue --build-arg NPM_TOKEN=${NPM_TOKEN} .
+docker build -t ghcr.io/flashflashrevolution/flashflashrevolution/service-404-fallback:sha-shavalue .
 
 # Push the built image.
 docker push ghcr.io/flashflashrevolution/flashflashrevolution/service-404-fallback:sha-shavalue
 
 # Here is an example of a functional sequence.
 # NPM_TOKEN=averyvalidtokenstring
-# docker build -t ghcr.io/flashflashrevolution/flashflashrevolution/service-404-fallback:sha-cbcc9cd --build-arg NPM_TOKEN=${NPM_TOKEN} .
+# docker build -t ghcr.io/flashflashrevolution/flashflashrevolution/service-404-fallback:sha-cbcc9cd .
 # docker push ghcr.io/flashflashrevolution/service-404-fallback:sha-cbcc9cd
 ```
 
 ## Local Docker Testing
 
 ```zsh
-# First get a github access token with registry read permissions.
-NPM_TOKEN=access_token
 
 # Build the image
-docker build -t ghcr.io/flashflashrevolution/flashflashrevolution/service-404-fallback:dev --build-arg NPM_TOKEN=${NPM_TOKEN} .
+docker build -t ghcr.io/flashflashrevolution/flashflashrevolution/service-404-fallback:dev .
 
 # Run the image
-docker container -p 8080:80 run ghcr.io/flashflashrevolution/flashflashrevolution/service-404-fallback:dev
+docker container run -p 8080:80 ghcr.io/flashflashrevolution/flashflashrevolution/service-404-fallback:dev
 ```
